@@ -1,18 +1,35 @@
 version: "3.0"
 services:
 
+  db:
+    image: mysql
+    ports:
+      - 33306:3306
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "dockerPassword"
+    volumes:
+      - "mysql:/var/lib/mysql"
+
   register:
     build: ./register
     ports:
       - 5024:5024
     environment:
-      DB_HOST: "172.17.0.1"
+      DB_HOST: "db"
       DB_PASS: "docker"
+    links:
+      - db
 
   users:
     build: ./users
     ports:
       - 5025:5025
     environment:
-      DB_HOST: "172.17.0.1"
+      DB_HOST: "db"
       DB_PASS: "docker"
+    links: 
+      - db
+
+volumes:
+  mysql:

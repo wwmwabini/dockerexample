@@ -17,4 +17,6 @@ app.config['SECRET_KEY']='QjgVdqYKe16f52MGxaZSCzwh9kElUA7vuRoPFtObD0'
 
 db = SQLAlchemy(app)
 
+db.create_all()
+
 from register import routes
