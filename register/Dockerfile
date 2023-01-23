@@ -6,7 +6,7 @@ WORKDIR /var/www/webapp
 
 COPY . /var/www/webapp
 
-RUN pip install -r requirements.txt
+RUN pip install -r /var/www/webapp/requirements.txt
 
 EXPOSE 5024
 
