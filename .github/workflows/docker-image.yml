@@ -22,8 +22,18 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
-      - name: Build and push
+          
+      - name: Build and push users app
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/dockerexample:latest
+          file: ./users/Dockerfile
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/users:latest
+          
+      - name: Build and push register app
+        uses: docker/build-push-action@v3
+        with:
+          push: true
+          file: ./register/Dockerfile
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/register:latest
+
