@@ -8,7 +8,7 @@ COPY register /var/www/webapp
 
 RUN ls -l /var/www/webapp
 
-RUN pip install -r /var/www/webapp/register/requirements.txt
+RUN pip install -r /var/www/webapp/requirements.txt
 
 EXPOSE 5024
 

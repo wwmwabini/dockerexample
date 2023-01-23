@@ -6,6 +6,6 @@ COPY users /var/www/webapp
 
 WORKDIR /var/www/webapp
 
-RUN pip install -r /var/www/webapp/users/requirements.txt
+RUN pip install -r /var/www/webapp/requirements.txt
 
 CMD ["python3", "run.py"]
