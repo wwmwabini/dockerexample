@@ -4,11 +4,11 @@ RUN apk add py3-pip
 
 WORKDIR /var/www/webapp
 
-COPY . /var/www/webapp
+COPY register /var/www/webapp
 
 RUN ls -l /var/www/webapp
 
-RUN pip install -r /var/www/webapp/requirements.txt
+RUN pip install -r /var/www/webapp/register/requirements.txt
 
 EXPOSE 5024
 
